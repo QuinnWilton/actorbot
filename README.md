@@ -1,19 +1,17 @@
 # Actorbot
 
-**TODO: Add description**
+This is intended to be the Elixir equivalent of Lambdabot. I don't know what features I intend to support long-term, but at a minimum, I think the following is essential.
 
-## Installation
+- Executing (sandboxed) Elixir code
+- Fetching docs for a given function or module
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `actorbot` to your list of dependencies in `mix.exs`:
+Also useful, though less necessary:
 
-```elixir
-def deps do
-  [{:actorbot, "~> 0.1.0"}]
-end
-```
+- Hoogle-like lookup of types, possibly through a database of Dialyzer PLTs
+- Linking builtin modules directly to their source code on GitHub
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/actorbot](https://hexdocs.pm/actorbot).
+Please open an issue or message me on Slack if you have other ideas.
 
+As a first pass, I am implementing it as slash commands for Slack, since I am always in [the Elixir Slack](https://elixir-lang.slack.com/). That being said, I want it to be easy to add support for IRC.
+
+I am also starting with a Heroku deployment, but only for ease of prototyping. If the project proves useful and popular, it should be adapted to use Distillery.
