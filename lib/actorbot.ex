@@ -1,18 +1,13 @@
 defmodule Actorbot do
-  @moduledoc """
-  Documentation for Actorbot.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    children = [
+      Plug.Adapters.Cowboy.child_spec(:http, Actorbot.SlackRouter, [],
+        [port: 4000])
+    ]
 
-  ## Examples
-
-      iex> Actorbot.hello
-      :world
-
-  """
-  def hello do
-    :world
+    opts = [strategy: :one_for_one, name: Actorbot.Supervisor]
+    Supervisor.start_link(children, opts)
   end
 end

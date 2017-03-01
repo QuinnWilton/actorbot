@@ -11,10 +11,16 @@ defmodule Actorbot.Mixfile do
   end
 
   def application do
-    [extra_applications: [:logger]]
+    [
+      extra_applications: [:logger],
+      mod: {Actorbot, []}
+    ]
   end
 
   defp deps do
-    []
+    [
+      {:cowboy, "~> 1.0.0"},
+      {:plug, "~> 1.0"}
+    ]
   end
 end
